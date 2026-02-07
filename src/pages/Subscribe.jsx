@@ -17,29 +17,30 @@ function Subscribe() {
     if (!inpEmail) {
       alert("Please input email address");
     } else {
-      navigate("/success");
+      navigate("/success", {state: {email: inpEmail}});
     }
   };
 
   // ------ JSX area ------
   return (
-    <div className="max-w-md bg-white p-8 round-2xl shadow-xl mt-10 mx-auto border border-sky-100 ">
+    <div className="max-w-md bg-white p-8 rounded-2xl shadow-xl mt-10 mx-auto border border-sky-100 ">
       <form onSubmit={hdlSubmit} className="flex flex-col gap-4">
-        <h1 className="text-2xl font-bold text-sky-800 mb-2">Subscription From</h1>
-        <p className="text-gray-500 text-sm mb-6">Please input email to subscribe and recive sensor-news from us</p>
+        <h1 className="text-2xl font-bold text-sky-800 mb-2">Subscription Form</h1>
+        <p className="text-gray-500 text-sm mb-6">Please input email to subscribe and receive sensor-news from us</p>
         <div>
-          <label>Email Adress</label>
+          <label>Email Address</label>
           <input
-            type="text"
+            type="email"
             name="email"
             value={inpEmail}
+            required
             onChange={hdlChange}
             placeholder="example@email.com"
-            className="input input-primary w-full "
+            className="input input-primary input-bordered mt-2 w-full "
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Scribe Now!
+          Subscribe Now!
         </button>
       </form>
     </div>
